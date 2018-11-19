@@ -31,6 +31,7 @@ print("")
 
 print("Detecting Wireless Networks: ")
 os.system('airodump-ng $card --ignore-negative-one')
+print("")
 
 print("Chose the way for deauth attack: ")
 os.system('test /usr/bin/mdk3 && echo "1: [+] Mdk3 ok" || echo "1: [!] Mdk3 off"')
