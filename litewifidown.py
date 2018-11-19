@@ -35,7 +35,8 @@ print("")
 print("")
 
 print("Detecting Wireless Networks: ")
-os.system('card=`cat card.sh` && nmcli device wifi rescan && nmcli device wifi list')
+os.system('nmcli device wifi rescan')
+os.system('nmcli device wifi list')
 print("")
 
 choose=raw_input("Say de ESSID of the Network: ")
