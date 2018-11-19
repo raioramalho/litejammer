@@ -19,7 +19,7 @@ os.system('test /usr/bin/macchanger && echo "[+] MacChanger ok" || apt-get -y in
 print("")
 
 print("Listing Wireless extensions: ")
-os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep 'w' > card.txt && cat -n card.txt")
+os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > card.txt && cat -n card.txt")
 print("")
 
 wlancard = raw_input("Please select one Wireless extension: ")
