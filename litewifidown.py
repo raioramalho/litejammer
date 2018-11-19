@@ -27,17 +27,18 @@ print("")
 
 print("Changing the mac addrrs: ")
 os.system('card=`cat card.sh` && ifconfig $card down && macchanger -r $card && ifconfig $card up')
-print("")
-
-print("Detecting Wireless Networks: ")
-os.system('airodump-ng $card --ignore-negative-one')
-print("")
-
 print("Chose the way for deauth attack: ")
 os.system('test /usr/bin/mdk3 && echo "1: [+] Mdk3 ok" || echo "1: [!] Mdk3 off"')
 os.system('test /usr/bin/aircrack-ng && echo "2: [+] Aircrack-ng ok" || echo "1: [!] Aireplay-ng off"')
 way=raw_input("Please Select or install manualy if your choose is off!: ")
 print("")
+print("")
+
+print("Detecting Wireless Networks: ")
+os.system('card=`cat card.sh` && airodump-ng $card --ignore-negative-one')
+print("")
+
+
 
 print("Return configurations: ")
-os.system('card=`cat card.sh` && ifconfig $card down && macchanger -r $card && ifconfig $card up')
+os.system('card=`cat card.sh` && ifconfig $card down && macchanger -p $card && ifconfig $card up')
