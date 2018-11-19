@@ -35,8 +35,8 @@ print("")
 print("")
 
 print("Detecting Wireless Networks: ")
-os.system('nmcli device wifi rescan ifname $card')
-os.system('nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,BARS,SECURITY,SSID, dev wifi list ifname $card')
+os.system('card=`cat card.sh` && nmcli device wifi rescan ifname $card')
+os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,BARS,SECURITY,SSID, dev wifi list ifname $card')
 print("")
 
 choose=raw_input("Choose the wifi to attack: ")
