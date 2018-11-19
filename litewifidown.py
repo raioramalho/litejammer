@@ -18,5 +18,4 @@ print("")
 
 wlancard = raw_input("Please select one Wireless extension: ")
 os.system('cat card.sh | grep -n ^ | grep '+wlancard+' | cut -d: -f2 > card.sh')
-os.system('card=`cat card.sh`')
-os.system('airodump-ng $card')
+os.system('card=`cat card.sh` && airodump-ng $card')
