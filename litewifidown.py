@@ -17,4 +17,5 @@ os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep 
 print("")
 
 wlancard = raw_input("Please select one Wireless extension: ")
-os.system('cat card.txt | grep -n ^ | grep '+wlancard+' | cut -d: -f2')
+card = str(os.system('cat card.txt | grep -n ^ | grep '+wlancard+' | cut -d: -f2'))
+print(card)
