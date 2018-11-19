@@ -20,11 +20,4 @@ print("")
 
 wlancard = raw_input("Please select one Wireless extension: ")
 os.system('cat card.txt | grep -n ^ | grep '+wlancard+' | cut -d: -f2 > card.sh')
-#os.system('card=`cat card.sh` && airodump-ng $card')
-os.system('CARD=`cat card.sh`')
-print("")
-
-print("Changing the mac addr: ")
-os.system('ifconfig $CARD down')
-os.system('screen maccanger -r $CARD && ifconfig $CARD up')
-print("")
+os.system('card=`cat card.sh` && airodump-ng $card')
