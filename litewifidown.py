@@ -13,6 +13,7 @@ print("")
 
 os.system('test /usr/bin/python  && echo "[+] Python ok" || apt-get -y install python')
 os.system('test /usr/bin/mdk3 && echo "[+] Mdk3 ok" || apt-get -y install mdk3')
+os.system('test /usr/bin/nmcli && echo "[+] Nmcli ok" || apt-get -y install nmcli')
 os.system('test /usr/bin/aircrack-ng && echo "[+] Aircrack-ng ok" || apt-get -y install aircrack-ng')
 os.system('test /usr/bin/macchanger && echo "[+] MacChanger ok" || apt-get -y install macchanger')
 print("")
@@ -36,7 +37,7 @@ print("")
 
 print("Detecting Wireless Networks: ")
 os.system('card=`cat card.sh` && nmcli device wifi rescan ifname $card')
-os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,BARS,SECURITY,SSID, dev wifi list ifname $card')
+os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,SSID, dev wifi ifname $card')
 print("")
 
 choose=raw_input("Choose the wifi to attack: ")
