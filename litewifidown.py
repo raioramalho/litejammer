@@ -13,10 +13,10 @@ os.system('test /usr/bin/aircrack-ng && echo "[+] Aircrack-ng ok" || apt-get -y 
 print("")
 
 print("Listing Wireless extensions: ")
-os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep 'w' > card.txt && cat -n card.txt")
+os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep 'w' > card.sh && cat -n card.sh")
 print("")
 
 wlancard = raw_input("Please select one Wireless extension: ")
-card = os.system('cat card.txt | grep -n ^ | grep '+wlancard+' | cut -d: -f2')
-
-os.system('airodump-ng '+card')
+os.system('cat card.sh | grep -n ^ | grep '+wlancard+' | cut -d: -f2 > card.sh')
+os.system('card=`cat card.sh`')
+os.system('airodump-ng $card')
