@@ -13,9 +13,9 @@ os.system('test /usr/bin/aircrack-ng && echo "[+] Aircrack-ng ok" || apt-get -y 
 print("")
 
 print("Listing Wireless extensions: ")
-os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep 'w' > card.sh && cat -n card.sh")
+os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep 'w' > card.txt && cat -n card.txt")
 print("")
 
 wlancard = raw_input("Please select one Wireless extension: ")
-os.system('cat card.sh | grep -n ^ | grep '+wlancard+' | cut -d: -f2 > card.sh')
+os.system('cat card.txt | grep -n ^ | grep '+wlancard+' | cut -d: -f2 > card.sh')
 os.system('card=`cat card.sh` && airodump-ng $card')
