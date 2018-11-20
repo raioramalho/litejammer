@@ -2,7 +2,7 @@ import os
 import sys
 import string
 #########################
-#ver:0.1
+#ver:0.1#
 #aireplay-ng -0 0 -a CC:B2:55:FD:41:DA wlan0mon
 #mdk3 wlan0mon d -n "Hooop"
 #| awk '{print FS2 $2}
