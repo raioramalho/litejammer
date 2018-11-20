@@ -1,8 +1,8 @@
 import os
 import sys
 
-def exec(command):
-   os.system(command)
+def exec(x):
+   os.system(""+x+"")
    
 def cls():
    logo = ("""
