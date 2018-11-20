@@ -6,6 +6,7 @@ import string
 #aireplay-ng -0 0 -a CC:B2:55:FD:41:DA wlan0mon
 #mdk3 wlan0mon d -n "Hooop"
 #| awk '{print FS2 $2}
+#sed 's/"//g'
 #| sed '/$choose/p; d'
 #nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,SSID, dev wifi list ifname $card | awk '{print FS2 $2}' | sed '2p; d' (BSSID)
 #nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS2 $7}' | sed '2p; d' (ESSID)
