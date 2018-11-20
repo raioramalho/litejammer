@@ -11,7 +11,7 @@ def cls():
    ||      --|| |     @@@
    ||        || O\    __                            Lite Wirelles Down ver0.1b
    ||        ||  \\  (..)
-   ||        ||   \\_|  |_            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   ||        ||   \\_|  |_             !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    ||        ||    \  \/  )           !!      Created by RamalhoSec Team | 20/11/2018          !!
    ||        ||     :    :|           !!      Donate  btc 3DppKRbA9Um3z4wnmVtkqnETnvwsip7WkC   !!                                       
    ||        ||     :    :|           !!      Contact https://github.com/RamalhoSec            !!
@@ -26,8 +26,7 @@ def cls():
 |   GUILLOTINE   |-----------|        !!             -b        Set target BSSID for (-air)     !! 
 |  OF WIRELESS NETWORKS      |        !!             -c        Set channel for monitor (-air)  !!  
 |____________________________|        !!             -e        Set target ESSID for (-mdk)     !!   
-                                      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-                                      """)
+                                      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! """)
    #os.system('clear')
    print(logo)
  
