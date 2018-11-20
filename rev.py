@@ -12,18 +12,19 @@ logo = ("""
    ||        || O\    __                            Lite Wirelles Down ver0.1b
    ||        ||  \\  (..)
    ||        ||   \\_|  |_            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   ||        ||    \  \/  )           !!          Created by RamalhoSec Team | 20/11/2018      !!
-   ||        ||     :    :|           !!          Use litewifidown.py --help to see more       !!                                       
-   ||        ||     :    :|           !!          Contact https://github.com/RamalhoSec        !!
+   ||        ||    \  \/  )           !!      Created by RamalhoSec Team | 20/11/2018          !!
+   ||        ||     :    :|           !!      Donate  btc 3DppKRbA9Um3z4wnmVtkqnETnvwsip7WkC   !!                                       
+   ||        ||     :    :|           !!      Contact https://github.com/RamalhoSec            !!
    ||        ||     :====:O           !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   ||        ||     (    )
-   ||__@@@@__||     | `' |
-   || @|AP|@ ||     | || |
-   ||O@`=='@O||     | || |
-   ||_@\/\/@_||     |_||_|
- ----------------   '_'`_`
-/________________\----------\
-|   GUILLOTINE   |-----------|
-|  OF WIRELESS NETWORKS      |
-|____________________________|
+   ||        ||     (    )            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                
+   ||__@@@@__||     | `' |            !!      Normal use: litewifidown.py                      !!          
+   || @|AP|@ ||     | || |            !!      Direct use:                                      !! 
+   ||O@`=='@O||     | || |            !!             -air      Attack with the aireplay-ng     !! 
+   ||_@\/\/@_||     |_||_|            !!             -mdk      Attack with the mdk3            !! 
+ ----------------   '_'`_`            !!      Options required:                                !! 
+/________________\----------\         !!             -i        Set Interface name              !! 
+|   GUILLOTINE   |-----------|        !!             -b        Set target BSSID for (-air)     !! 
+|  OF WIRELESS NETWORKS      |        !!             -c        Set channel for monitor (-air)  !!  
+|____________________________|        !!             -e        Set target ESSID for (-mdk)     !!   
+                                      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 """)
