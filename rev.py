@@ -36,12 +36,10 @@ def cls():
 
 def start():
    if(sys.argv[1] == "-air"):
-      cls()
       print("aireplay-ng attack")
       
       
    if(sys.argv[1] == "-mdk"):
-      cls()
       print("mdk3 attack")
       
 try:
