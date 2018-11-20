@@ -24,6 +24,8 @@ os.system('test /usr/bin/aircrack-ng && echo "[+] Aircrack-ng ok" || apt-get -y 
 os.system('test /usr/bin/macchanger && echo "[+] MacChanger ok" || apt-get -y install macchanger')
 print("")
 
+
+os.system('airmon-ng check kill')
 print("Listing Wireless extensions: ")
 os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > card.txt && cat -n card.txt")
 print("")
@@ -34,6 +36,7 @@ print("")
 
 print("Changing the mac addrrs: ")
 os.system('card=`cat card.sh` && ifconfig $card down && macchanger -r $card && ifconfig $card up')
+print("")
 print("Chose the way for deauth attack: ")
 os.system('test /usr/bin/mdk3 && echo "1: [+] Mdk3 ok" || echo "1: [!] Mdk3 off"')
 os.system('test /usr/bin/aircrack-ng && echo "2: [+] Aircrack-ng ok" || echo "1: [!] Aireplay-ng off"')
