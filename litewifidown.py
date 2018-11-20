@@ -50,9 +50,9 @@ os.system("monitor=`cat monitor.rmo` && airodump-ng $monitor -w target")
 
 target = raw_input("Select one ESSID for start the attack: ")
 os.system("cat target-01.csv | grep '"+target+"' > target.rmo")
-os.system("cat target-01.csv | awk '{print FS1 $20}' | sed 's/,//g' > tessid.rmo")
-os.system("cat target-01.csv | awk '{print FS1 $1}' | sed 's/,//g' > tbssid.rmo")
-os.system("cat target-01.csv | awk '{print FS1 $6}' | sed 's/,//g' > tchannel.rmo")
+os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $20}' | sed 's/,//g' > tessid.rmo")
+os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $1}' | sed 's/,//g' > tbssid.rmo")
+os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $6}' | sed 's/,//g' > tchannel.rmo")
 
 #print("")
 #print("Return configurations: ")
