@@ -44,6 +44,10 @@ os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,S
 print("")
 
 choose=raw_input("Choose the wifi to attack: ")
+if way == 1:
+  print("you choose mdk attackmode!")
+ else:
+  print("you choose aireplay attackmode!")
 
 
 print("Return configurations: ")
