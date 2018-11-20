@@ -35,7 +35,7 @@ def cls():
 
 
 def start():
-   if(sys.argv[1] == "--help")
+   if(sys.argv[1] == "--help"):#Help page
       cls()
    if(sys.argv[1] == "--a"):#aireplay attack
       cls()
