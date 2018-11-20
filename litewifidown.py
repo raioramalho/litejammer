@@ -37,16 +37,19 @@ os.system("monitor=`cat monitor.rmo` && macchanger -r $monitor")
 os.system('clear')
 
 
-
 print("List of avaliable attack mod: ")
 print("[+] Mdk3 Deauth / Disassociation")
 print("[+] Aireplay-ng Deauth")
 attack = raw_input("Select one mod fo the attack: ")
+os.system('clear')
 
+print("Listing avaliable wireless network for attack: ")
+print(".")
+print("..")
+print("...")
+print("....")
 
-
-  
-
+os.system("monitor=`cat monitor.rmo` && airodump-ng $monitor -w target")
   
 #print("")
 #print("Return configurations: ")
