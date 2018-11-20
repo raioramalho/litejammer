@@ -49,7 +49,7 @@ print("Listing avaliable wireless network for attack: ")
 os.system("monitor=`cat monitor.rmo` && airodump-ng $monitor -w target")
 
 target = raw_input("Select one ESSID for start the attack: ")
-os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $20}' | sed 's/,//g'")
+os.system("cat target-01.csv | grep '"+target+"'")
 
 #print("")
 #print("Return configurations: ")
