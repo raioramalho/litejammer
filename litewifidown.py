@@ -26,10 +26,10 @@ os.system('test /usr/bin/nmcli && echo "[+] Nmcli ok" || apt-get -y install nmcl
 os.system('test /usr/bin/aircrack-ng && echo "[+] Aircrack-ng ok" || apt-get -y install aircrack-ng')
 os.system('test /usr/bin/macchanger && echo "[+] MacChanger ok" || apt-get -y install macchanger')
 print("")
-os.system('cls')
+os.system('clear')
 
 print("Listing Wireless cards: ")
-os.system("test /monitor.rmo && rm monitor.rmo || ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > monitor.rmo")
+os.system("test monitor.rmo && echo monitor.rmo || ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > monitor.rmo")
 monitor = raw_input("Select you wirelles card fo monitor mode:")
 os.system('cat monitor.rmo | grep -n ^ | grep '+monitor+' | cut -d: -f2 > monitor.rmo')
 os.system('cat monitor.rmo')
