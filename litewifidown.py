@@ -28,7 +28,8 @@ def cls():
 |   GUILLOTINE   |-----------|        !!             -b      Set target BSSID for (-air)       !! 
 |  OF WIRELESS NETWORKS      |        !!             -c      Set channel for monitor (-air)    !!  
 |____________________________|        !!             -e      Set target ESSID for (-mdk)       !!   
-                                      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! """)
+                                      !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                      """)
    os.system('clear')
    print(logo)
    print("")
