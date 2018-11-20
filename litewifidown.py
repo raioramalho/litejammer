@@ -46,11 +46,10 @@ os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,S
 print("")
 print("")
 
-choose=int(raw_input("Choose the wifi to attack: "))
-choose= choose + 1
-choose= str(choose)
-os.system('echo "'+choose+'p" > choose')
-os.system("card=`cat card.sh` && choose=`cat choose` && ch=`nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS3 $3}' | sed '2p; d'` && echo $ch")
+choo=int(raw_input("Choose the wifi to attack: "))
+choo= choo + 1
+os.system('echo "'+str(choose)+'p;" > choose')
+os.system("card=`cat card.sh` && choose=`cat choose` && ch=`nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS3 $3}' | sed '$choose d'` && echo $ch")
 #os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng stop $card && airmon-ng start $card $ch')
 print("")
 
