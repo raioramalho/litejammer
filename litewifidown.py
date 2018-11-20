@@ -57,7 +57,7 @@ print("")
 
 if way == 1:
   os.system("card=`cat card.sh` && choose=`cat choose` && echo 'ok'")
-  os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng start $card $ch' && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS2 $7}' | sed '/$choose/p; d' > targ')
+  os.system("card=`cat card.sh` && ch=`cat chan` && airmon-ng start $card $ch' && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS2 $7}' | sed '/$choose/p; d' > targ")
   os.system('card=`cat card.sh`mon && choose=`cat choose` && target=`cat targ` && mdk3 $card d -n "$target"')
   print("Wait..")
   #os.system('card=`cat card.sh`mon && ch=`cat chan` && airmon-ng stop $card')
