@@ -8,7 +8,9 @@ import string
 #| awk '{print FS2 $2}
 #sed 's/"//g'
 #| sed '/$choose/p; d'
-#nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,SSID, dev wifi list ifname $card | awk '{print FS2 $2}' | sed '2p; d' (BSSID)
+#cat .csv | grep "ESSID" | awk '{print FS1 $1}' | sed 's/,//g' (BSSID)
+#cat .csv | grep "ESSID" | awk '{print FS1 $6}' | sed 's/,//g' (CHANNEL)
+##cat .csv | grep "ESSID" | awk '{print FS1 $20}' | sed 's/,//g' (ESSID)
 #nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS2 $7}' | sed '2p; d' (ESSID)
 #nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname wlan1 | awk '{print FS3 $3}' | sed '2p; d' (CHANNEL)
 ###########################
