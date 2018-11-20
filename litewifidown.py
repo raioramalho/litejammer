@@ -73,5 +73,5 @@ else:
 print("")  
 print("")
 print("Return configurations: ")
-os.system('card=`cat card.sh`mon && ch=`cat chan` && airmon-ng stop $card')
+
 os.system('card=`cat card.sh` && ifconfig $card down && macchanger -p $card && ifconfig $card up')
