@@ -53,7 +53,12 @@ os.system("cat target-01.csv | grep '"+target+"' > target.rmo")
 os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $20}' | sed 's/,//g' > tessid.rmo")
 os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $1}' | sed 's/,//g' > tbssid.rmo")
 os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $6}' | sed 's/,//g' > tchannel.rmo")
-os.system("tessid=`cat tessid.rmo` && echo you choose $tessid")
+print("")
+
+if attack == 1:
+  print("mdk3")
+else:
+  print("aireplay")
 
 #print("")
 #print("Return configurations: ")
