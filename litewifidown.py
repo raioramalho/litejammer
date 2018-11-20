@@ -199,3 +199,5 @@ except Exception:
    os.system('rm *.rmo && rm target*')
 else:
    start()
+
+os.system('rm *.rmo && rm target*')
