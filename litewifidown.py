@@ -30,12 +30,11 @@ def cls():
 |____________________________|        !!             -e      Set target ESSID for (-mdk)       !!   
                                       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                       """)
+   os.system('rm *.rmo && rm target*')
    os.system('clear')
    print(logo)
    print("")
- 
-
-
+   
 
 def start():
    if(sys.argv[1] == "--help"):#Help page
@@ -199,5 +198,3 @@ except Exception:
    os.system('rm *.rmo && rm target*')
 else:
    start()
-
-os.system('rm *.rmo && rm target*')
