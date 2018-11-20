@@ -48,6 +48,7 @@ def start():
       if(sys.argv[2] == "--a"):
          mode="aireplay-ng "
          print("#############################"+mode+"#############################")
+         os.system("airodump-ng "+str(sys.argv[4])+"")
          #os.system("airmon-ng start "+str(sys.argv[5])+" "+str(sys.argv[8])+"")
          os.system(""+mode+"-0 0 -a "+str(sys.argv[6])+" "+str(sys.argv[4])+"")
          #os.system("airmon-ng stop "+str(sys.argv[5])+"mon")
