@@ -39,8 +39,8 @@ print("")
 print("")
 
 print("Detecting Wireless Networks: ")
-os.system('card=`cat card.sh` && nmcli device wifi rescan ifname $card')
 os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,SSID, dev wifi list ifname $card')
+print("")
 print("")
 
 choose=raw_input("Choose the wifi to attack: ")
@@ -49,6 +49,9 @@ if way == 1:
 else:
   print("you choose aireplay attackmode!")
 
-
+  
+  
+print("")  
+print("")
 print("Return configurations: ")
 os.system('card=`cat card.sh` && ifconfig $card down && macchanger -p $card && ifconfig $card up')
