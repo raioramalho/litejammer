@@ -16,7 +16,7 @@ import string
 #nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS2 $7}' | sed '2p; d' (ESSID)
 #nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname wlan1 | awk '{print FS3 $3}' | sed '2p; d' (CHANNEL)
 ###########################
-
+os.system('clear')
 
 print("Check dependencies: ")
 print("")
@@ -26,7 +26,6 @@ os.system('test /usr/bin/nmcli && echo "[+] Nmcli ok" || apt-get -y install nmcl
 os.system('test /usr/bin/aircrack-ng && echo "[+] Aircrack-ng ok" || apt-get -y install aircrack-ng')
 os.system('test /usr/bin/macchanger && echo "[+] MacChanger ok" || apt-get -y install macchanger')
 print("")
-os.system('clear')
 
 print("Listing Wireless cards: ")
 os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > monitor.rmo")
@@ -34,14 +33,14 @@ os.system('cat -n monitor.rmo')
 monitor = raw_input("Select you wirelles card fo monitor mode: ")
 os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '"+monitor+"' | cut -d: -f2 > monitor.rmo")
 os.system("monitor=`cat monitor.rmo` && macchanger -r $monitor")
-os.system('clear')
+
 
 
 print("List of avaliable attack mod: ")
 print("[1] Mdk3 Deauth / Disassociation")
 print("[2] Aireplay-ng Deauth")
 attack = raw_input("Select one mod fo the attack: ")
-os.system('clear')
+
 
 print("Listing avaliable wireless network for attack: ")
 print(".")
