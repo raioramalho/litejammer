@@ -47,9 +47,9 @@ print("")
 
 choose=int(raw_input("Choose the wifi to attack: "))
 choose= choose + 1
-os.system('choose="'+choose+'"')
-os.system('p="p"')
-os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname wlan1 | awk '{print FS3 $3}' | sed '$choose$p; d' > chan')
+os.system('echo "'+choose+'" > choose')
+os.system('echo "p" > p')
+os.system('card=`cat card.sh` && p=`cat p` && choose=`cat choose` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname wlan1 | awk '{print FS3 $3}' | sed '$choose$p; d' > chan')
 os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng stop $card && airmon-ng start $card $ch')
 if way == 1:
   os.system('')
