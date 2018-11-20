@@ -85,10 +85,10 @@ except Exception:
    monitor = raw_input("Select you wirelles card fo monitor mode: ")
    os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '"+monitor+"' | cut -d: -f2 > monitor.rmo")
    print("Changing the MAC")
-   os.system("macchanger -r "+str(sys.argv[4])+"")
+   os.system("monitor=`cat monitor.rmo` && macchanger -r $monitor")
    print("")
    
    
-   os.system("macchanger -p "+str(sys.argv[4])+"")
+   os.system("monitor=`cat monitor.rmo` && macchanger -p $monitor")
 else:
    start()
