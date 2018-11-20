@@ -55,7 +55,7 @@ os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $1}' | sed 's
 os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $6}' | sed 's/,//g' > tchannel.rmo")
 print("")
 
-if attack == 1:
+if attack == '1':
   print("############################# mdk3 attack! ###################################")
   os.system("monitor=`cat monitor.rmo`mon && tessid=`cat tessid.rmo` && mdk3 $monitor d -n '"+target+"'")
 else:
