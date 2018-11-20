@@ -91,6 +91,8 @@ except Exception:
    os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > monitor.rmo")
    os.system('cat -n monitor.rmo')
    monitor = raw_input("Select you wirelles card fo monitor mode: ")
+   print("")
+   
    os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '"+monitor+"' | cut -d: -f2 > monitor.rmo")
    print("Changing the MAC")
    os.system("monitor=`cat monitor.rmo` && ifconfig $monitor down")
@@ -101,6 +103,7 @@ except Exception:
    os.system("monitor=`cat monitor.rmo` && ifconfig $monitor down")
    os.system("monitor=`cat monitor.rmo` && macchanger -p $monitor")
    os.system("monitor=`cat monitor.rmo` && ifconfig $monitor up")
+   print("")
    os.system('rm *.rmo && rm target*')
 else:
    start()
