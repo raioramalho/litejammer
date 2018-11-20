@@ -38,6 +38,8 @@ def cls():
 def start():
    if(sys.argv[1] == "--help"):#Help page
       cls()
+      print("# Aireplay quiet example: python litewifidown.py --a -i IFACE -b BSSID")
+      print("# Mdk3 quiet example: python litewifidown.py --m -i IFACE -e ESSID")
    if(sys.argv[1] == "--a"):#aireplay attack
       cls()
       print("Listing Wireless cards: ")
