@@ -42,6 +42,6 @@ os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep 
   
 
   
-print("")
-print("Return configurations: ")
+#print("")
+#print("Return configurations: ")
 #os.system('rm *.rmo')
