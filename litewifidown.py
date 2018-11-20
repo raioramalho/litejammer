@@ -20,7 +20,6 @@ import string
 
 print("Check dependencies: ")
 print("")
-
 os.system('test /usr/bin/python  && echo "[+] Python ok" || apt-get -y install python')
 os.system('test /usr/bin/mdk3 && echo "[+] Mdk3 ok" || apt-get -y install mdk3')
 os.system('test /usr/bin/nmcli && echo "[+] Nmcli ok" || apt-get -y install nmcli')
@@ -31,9 +30,7 @@ print("")
 
 
   
-print("")  
+
 print("")
 print("Return configurations: ")
 os.system('rm *.rmo')
-os.system('card=`cat card.sh` && ifconfig $card down && macchanger -p $card && ifconfig $card up')
-os.system('service network-manager restart')
