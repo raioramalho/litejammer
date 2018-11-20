@@ -46,7 +46,7 @@ print("")
 choose=raw_input("Choose the wifi to attack: ")
 if way == 1:
   print("you choose mdk attackmode!")
- else:
+else:
   print("you choose aireplay attackmode!")
 
 
