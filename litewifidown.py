@@ -44,4 +44,4 @@ os.system("cat monitor.rmo | grep -n ^ | grep '"+monitor+"' | cut -d: -f2")
   
 print("")
 print("Return configurations: ")
-os.system('rm *.rmo')
+#os.system('rm *.rmo')
