@@ -19,30 +19,32 @@ def cls():
    ||        ||     (    )            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                
    ||__@@@@__||     | `' |            !!      Normal use: litewifidown.py                      !!          
    || @|AP|@ ||     | || |            !!      Direct use:                                      !! 
-   ||O@`=='@O||     | || |            !!             -a      Attack with the aireplay-ng       !! 
-   ||_@\/\/@_||     |_||_|            !!             -m      Attack with the mdk3              !! 
+   ||O@`=='@O||     | || |            !!            --a      Attack with the aireplay-ng       !! 
+   ||_@\/\/@_||     |_||_|            !!            --m      Attack with the mdk3              !! 
  ----------------   '_'`_`            !!      Options required:                                !! 
-/________________\----------\         !!             -i        Set Interface name (-air)(-mdk) !! 
-|   GUILLOTINE   |-----------|        !!             -b        Set target BSSID for (-air)     !! 
-|  OF WIRELESS NETWORKS      |        !!             -c        Set channel for monitor (-air)  !!  
-|____________________________|        !!             -e        Set target ESSID for (-mdk)     !!   
+/________________\----------\         !!             -i      Set Interface name (-air)(-mdk)   !! 
+|   GUILLOTINE   |-----------|        !!             -b      Set target BSSID for (-air)       !! 
+|  OF WIRELESS NETWORKS      |        !!             -c      Set channel for monitor (-air)    !!  
+|____________________________|        !!             -e      Set target ESSID for (-mdk)       !!   
                                       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! """)
-   #os.system('clear')
+   os.system('clear')
    print(logo)
  
 
 
 
 def start():
-   if(sys.argv[1] == "-a"):
+   if(sys.argv[1] == "--a"):
       cls()
       print("aireplay-ng attack")
       
       
-   if(sys.argv[1] == "-m"):
+   if(sys.argv[1] == "--m"):
       cls()
       print("mdk3 attack")
-
+      
+   if(sys.argv[1] == "-q"):
+      print("Quiet attack")
       
       
 try:
