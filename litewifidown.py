@@ -51,15 +51,10 @@ choose=str(choose)
 os.system('echo "'+choose+'p;" > choose')
 os.system("card=`cat card.sh` && choose=`cat choose` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS3 $3}' | sed '$choose d'")
 os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng stop $card && airmon-ng start $card $ch')
-if way == 1:
-  os.system('')
-  
-else:
-  print("you choose aireplay attackmode!")
 
   
   
 print("")  
 print("")
 print("Return configurations: ")
-os.system('card=`cat card.sh` && ifconfig $card down && macchanger -p $card && ifconfig $card up')
+#os.system('card=`cat card.sh` && ifconfig $card down && macchanger -p $card && ifconfig $card up')
