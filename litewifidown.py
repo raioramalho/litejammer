@@ -39,8 +39,8 @@ os.system('clear')
 
 
 print("List of avaliable attack mod: ")
-print("[+] Mdk3")
-print("[+] Aireplay-ng")
+print("[+] Mdk3 Deauth / Disassociation")
+print("[+] Aireplay-ng Deauth")
 attack = raw_input("Select one mod fo the attack: ")
 
 
