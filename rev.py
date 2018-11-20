@@ -18,7 +18,7 @@ def cls():
    ||        ||     :    :|           !!      Contact https://github.com/RamalhoSec            !!
    ||        ||     :====:O           !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    ||        ||     (    )            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                
-   ||__@@@@__||     | `' |            !!      Normal use: litewifidown.py                      !!          
+   ||__@@@@__||     | `' |            !!      Normal use: litewifidown.py  Quiet: -q           !!          
    || @|AP|@ ||     | || |            !!      Direct use:                                      !! 
    ||O@`=='@O||     | || |            !!            --a      Attack with the aireplay-ng       !! 
    ||_@\/\/@_||     |_||_|            !!            --m      Attack with the mdk3              !! 
