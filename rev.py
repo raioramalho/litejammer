@@ -1,8 +1,6 @@
 import os
 import sys
 
-def exec(cmd):
-   os.system(''+cmd+'')
    
 def cls():
    logo = ("""
@@ -47,7 +45,7 @@ def start():
       
       
    if(sys.argv[1] == "-q"):#Quiet attack
-      exec(str(sys.argv[2]))
+      os.system(""+str(sys.argv[2])+"")
       
       
 try:
