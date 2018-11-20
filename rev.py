@@ -35,16 +35,20 @@ def cls():
 
 def start():
    if(sys.argv[1] == "-a"):
+      cls()
       print("aireplay-ng attack")
       
       
    if(sys.argv[1] == "-m"):
+      cls()
       print("mdk3 attack")
 
-start()      
+      
       
 try:
    sys.argv[1]
 except Exception:
    cls()
    print("normal attack")
+else:
+   start()
