@@ -40,7 +40,7 @@ print("")
 print("Chose the way for deauth attack: ")
 os.system('test /usr/bin/mdk3 && echo "1: [+] Mdk3 ok" || echo "1: [!] Mdk3 off"')
 os.system('test /usr/bin/aircrack-ng && echo "2: [+] Aircrack-ng ok" || echo "1: [!] Aireplay-ng off"')
-way=raw_input("Please Select or install manualy if your choose is off!: ")
+way = raw_input("Please Select or install manualy if your choose is off!: ")
 print("")
 print("")
 
@@ -49,7 +49,7 @@ os.system('card=`cat card.sh` && nmcli dev wifi rescan ifname $card')
 os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,SSID, dev wifi list ifname $card')
 
 
-choo=int(raw_input("Choose the wifi to attack: "))
+choo = int(raw_input("Choose the wifi to attack: "))
 choose=(choo+1)
 os.system('echo "'+str(choose)+'" > choose')
 os.system("card=`cat card.sh` && choose=`cat choose` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS3 $3}' | sed '/$choose/p; d' > chan")
