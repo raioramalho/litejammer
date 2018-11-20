@@ -26,7 +26,7 @@ os.system('test /usr/bin/nmcli && echo "[+] Nmcli ok" || apt-get -y install nmcl
 os.system('test /usr/bin/aircrack-ng && echo "[+] Aircrack-ng ok" || apt-get -y install aircrack-ng')
 os.system('test /usr/bin/macchanger && echo "[+] MacChanger ok" || apt-get -y install macchanger')
 print("")
-os.system(cls)
+os.system('cls')
 
 print("Listing Wireless cards: ")
 os.system("test /monitor.rmo && rm monitor.rmo || ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > monitor.rmo")
