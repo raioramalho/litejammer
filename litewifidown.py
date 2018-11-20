@@ -53,7 +53,7 @@ os.system('echo "'+choose+'p;" > choose')
 os.system("card=`cat card.sh` && choose=`cat choose` && ch=`nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS3 $3}' | sed '$choose d'` && echo $ch")
 #os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng stop $card && airmon-ng start $card $ch')
 print("")
-os.system('ch=`cat chan` && echo $ch')
+
 
   
   
