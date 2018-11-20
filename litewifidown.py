@@ -31,7 +31,7 @@ os.system('clear')
 print("Listing Wireless cards: ")
 os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//'")
 monitor = raw_input("Select you wirelles card fo monitor mode:")
-os.system('ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '+monitor+' | cut -d: -f2 > monitor.rmo')
+os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '+monitor+' | cut -d: -f2 > monitor.rmo")
 os.system('cat monitor.rmo')
 
 
