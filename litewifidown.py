@@ -63,8 +63,8 @@ os.system('clear')
 
 
 print("Detecting Wireless Networks: ")
-os.system('card=`cat cardm.sh` && airodump-ng $card')
-os.system('card=`cat cardm.sh` && nmcli dev wifi rescan ifname $card')
+os.system('card=`cat cardm.sh` && airodump-ng $card && nmcli dev wifi rescan ifname $card')
+$os.system('card=`cat cardm.sh` && nmcli dev wifi rescan ifname $card')
 os.system('card=`cat cardm.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,SSID, dev wifi list ifname $card')
 print("[0] to reescan")
 
