@@ -1,6 +1,9 @@
 import os
 import sys
 
+def exec(command):
+   os.system(command)
+   
 def cls():
    logo = ("""
    ____________
@@ -34,17 +37,17 @@ def cls():
 
 
 def start():
-   if(sys.argv[1] == "--a"):
+   if(sys.argv[1] == "--a"):#aireplay attack
       cls()
-      print("aireplay-ng attack")
       
       
-   if(sys.argv[1] == "--m"):
+      
+   if(sys.argv[1] == "--m"):#mdk3 attack
       cls()
-      print("mdk3 attack")
       
-   if(sys.argv[1] == "-q"):
-      print("Quiet attack")
+      
+   if(sys.argv[1] == "-q"):#Quiet attack
+      exec(str(sys.argv[2]))
       
       
 try:
