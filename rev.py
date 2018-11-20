@@ -1,8 +1,8 @@
 import os
 import sys
 
-
-logo = ("""
+def cls():
+   logo = ("""
    ____________
   |____________|_
    ||--------|| | @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -27,17 +27,15 @@ logo = ("""
 |  OF WIRELESS NETWORKS      |        !!             -c        Set channel for monitor (-air)  !!  
 |____________________________|        !!             -e        Set target ESSID for (-mdk)     !!   
                                       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-""")
-
-def cls():
+                                      """)
    os.system('clear')
-
+   print(logo)
+ 
 
 
 
 def start():
    cls()
-   print(logo)
    
    if(sys.argv[1] == "-air"):
       print("aireplay-ng attack")
