@@ -40,6 +40,8 @@ def start():
       
    if(sys.argv[1] == "-m"):
       print("mdk3 attack")
+
+start()      
       
 try:
    sys.argv[1]
