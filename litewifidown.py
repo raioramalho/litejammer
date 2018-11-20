@@ -25,7 +25,7 @@ os.system('test /usr/bin/macchanger && echo "[+] MacChanger ok" || apt-get -y in
 print("")
 
 
-os.system('airmon-ng check kill')
+
 print("Listing Wireless extensions: ")
 os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > card.txt && cat -n card.txt")
 print("")
