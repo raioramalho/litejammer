@@ -33,7 +33,9 @@ print("")
 wlancard = raw_input("Please select one Wireless extension: ")
 os.system('cat card.txt | grep -n ^ | grep '+wlancard+' | cut -d: -f2 > card.sh')
 print("")
-os.system('clear')
+os.system('cat card.sh')
+os.system('pause')
+
 
 print("Changing the mac addrrs: ")
 os.system('card=`cat card.sh` && ifconfig $card down && macchanger -r $card && ifconfig $card up')
