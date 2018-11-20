@@ -29,6 +29,7 @@ print("Listing Wireless extensions: ")
 os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > card.txt && cat -n card.txt")
 print("")
 
+
 wlancard = raw_input("Please select one Wireless extension: ")
 os.system('cat card.txt | grep -n ^ | grep '+wlancard+' | cut -d: -f2 > card.sh')
 print("")
@@ -46,13 +47,19 @@ print("")
 print("Detecting Wireless Networks: ")
 os.system('card=`cat card.sh` && nmcli dev wifi rescan ifname $card')
 os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,SSID, dev wifi list ifname $card')
-
+print("[0] to reescan")
 
 choo = int(raw_input("Choose the wifi to attack: "))
 choose=(choo+1)
-os.system('echo "'+str(choose)+'" > choose')
-os.system("card=`cat card.sh` && choose=`cat choose` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS3 $3}' | sed '/$choose/p; d' > chan")
-print("")
+if choo == 0:
+  print("Detecting Wireless Networks: ")
+  os.system('card=`cat card.sh` && nmcli dev wifi rescan ifname $card')
+  os.system('card=`cat card.sh` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SECURITY,SSID, dev wifi list ifname $card')
+  print("[0] to reescan")
+else:
+  os.system('echo "'+str(choose)+'" > choose')
+  os.system("card=`cat card.sh` && choose=`cat choose` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS3 $3}' | sed '/$choose/p; d' > chan")
+  print("")
 
 if way == 1:
   os.system("card=`cat card.sh` && choose=`cat choose` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname $card | awk '{print FS2 $7}' | sed '/$choose/p; d' > targ")
