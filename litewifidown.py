@@ -49,8 +49,10 @@ print("..")
 print("...")
 print("....")
 
-os.system("monitor=`cat monitor.rmo` && airodump-ng $monitor -w target")
-  
+os.system("monitor=`cat monitor.rmo` && screen airodump-ng $monitor -w target")
+
+target = raw_input("Select one ESSID for start the attack: ")
+
 #print("")
 #print("Return configurations: ")
 #os.system('rm *.rmo')
