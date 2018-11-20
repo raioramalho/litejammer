@@ -34,7 +34,7 @@ wlancard = raw_input("Please select one Wireless extension: ")
 os.system('cat card.txt | grep -n ^ | grep '+wlancard+' | cut -d: -f2 > card.sh')
 print("")
 os.system('cat card.sh && echo "#############################################################"')
-os.system('clear')
+os.system('cat card.sh && echo "#############################################################"')
 
 
 print("Changing the mac addrrs: ")
