@@ -74,5 +74,12 @@ except Exception:
    os.system('test /usr/bin/macchanger && echo "[+] MacChanger ok" || apt-get -y install macchanger')
    print("")
    
+   print("Listing Wireless cards: ")
+   os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' > monitor.rmo")
+   os.system('cat -n monitor.rmo')
+   monitor = raw_input("Select you wirelles card fo monitor mode: ")
+   os.system("ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep '"+monitor+"' | cut -d: -f2 > monitor.rmo")
+   print("")
+   
 else:
    start()
