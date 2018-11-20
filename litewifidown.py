@@ -73,5 +73,4 @@ else:
 print("")  
 print("")
 print("Return configurations: ")
-
 os.system('card=`cat card.sh` && ifconfig $card down && macchanger -p $card && ifconfig $card up')
