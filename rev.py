@@ -28,7 +28,7 @@ def cls():
 |____________________________|        !!             -e        Set target ESSID for (-mdk)     !!   
                                       !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
                                       """)
-   os.system('clear')
+   #os.system('clear')
    print(logo)
  
 
