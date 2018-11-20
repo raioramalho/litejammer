@@ -45,7 +45,12 @@ def start():
       
       
    if(sys.argv[1] == "-q"):#Quiet attack
-      os.system(""+str(sys.argv[2])+"")
+      if(sys.argv[2] == "--a"):
+         mode="aireplay-ng"
+      if(sys.argv[2] == "--m"):
+         mode="mdk3"
+         
+      os.system(""+mode+"")
       
       
 try:
