@@ -19,8 +19,8 @@ def cls():
    ||        ||     (    )            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                
    ||__@@@@__||     | `' |            !!      Normal use: litewifidown.py                      !!          
    || @|AP|@ ||     | || |            !!      Direct use:                                      !! 
-   ||O@`=='@O||     | || |            !!             -air      Attack with the aireplay-ng     !! 
-   ||_@\/\/@_||     |_||_|            !!             -mdk      Attack with the mdk3            !! 
+   ||O@`=='@O||     | || |            !!             -a      Attack with the aireplay-ng       !! 
+   ||_@\/\/@_||     |_||_|            !!             -m      Attack with the mdk3              !! 
  ----------------   '_'`_`            !!      Options required:                                !! 
 /________________\----------\         !!             -i        Set Interface name (-air)(-mdk) !! 
 |   GUILLOTINE   |-----------|        !!             -b        Set target BSSID for (-air)     !! 
@@ -35,11 +35,11 @@ def cls():
 
 
 def start():
-   if(sys.argv[1] == "-air"):
+   if(sys.argv[1] == "-a"):
       print("aireplay-ng attack")
       
       
-   if(sys.argv[1] == "-mdk"):
+   if(sys.argv[1] == "-m"):
       print("mdk3 attack")
       
 try:
