@@ -38,8 +38,8 @@ os.system('clear')
 
 
 print("List of avaliable attack mod: ")
-print("[+] Mdk3 Deauth / Disassociation")
-print("[+] Aireplay-ng Deauth")
+print("[1] Mdk3 Deauth / Disassociation")
+print("[2] Aireplay-ng Deauth")
 attack = raw_input("Select one mod fo the attack: ")
 os.system('clear')
 
@@ -49,7 +49,7 @@ print("..")
 print("...")
 print("....")
 
-os.system("monitor=`cat monitor.rmo` && screen airodump-ng $monitor -w target")
+os.system("monitor=`cat monitor.rmo` && airodump-ng $monitor -w target")
 
 target = raw_input("Select one ESSID for start the attack: ")
 
