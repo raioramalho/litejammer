@@ -50,7 +50,7 @@ choose= choose + 1
 choose=str(choose)
 os.system('echo "'+choose+'" > choose')
 os.system('echo "p" > p')
-os.system('card=`cat card.sh` && p=`cat p` && choose=`cat choose$p` && echo $choose$card')
+os.system('card=`cat card.sh` && p=`cat p` && choose=`cat choose`$p && echo $choose$card')
 os.system('card=`cat card.sh` && ch=`cat chan` && airmon-ng stop $card && airmon-ng start $card $ch')
 if way == 1:
   os.system('')
