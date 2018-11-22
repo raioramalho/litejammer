@@ -14,7 +14,7 @@ def cls():
    ||        || O\    __                            Lite Wirelles Down ver0.1b
    ||        ||  \\  (..)
    ||        ||   \\_|  |_             !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   ||        ||    \  \/  )           !!      Created by RamalhoSec Team | 20/11/2018          !!
+   ||        ||    \  \/  )           !!      Created by Acr4n1us | 20/11/2018                 !!
    ||        ||     :    :|           !!      Donate  btc 3DppKRbA9Um3z4wnmVtkqnETnvwsip7WkC   !!    
    ||        ||     :    :|           !!      Contact https://github.com/RamalhoSec            !!
    ||        ||     :====:O           !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
