@@ -3,7 +3,7 @@ Tool for deauth clients from wifi using mdk3 and shellscripts
 
 ```
 
-▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒Litewifidown v0.2
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒Litewifidown0.2
 ▒▒▒▒▒▐▀▀▀█▄▒▒▒▒▒▒▒▒▒▒▒
 ▒▒▒▒█▀─────█▒▒▒▒▒▒▒▒▒▒Created by: Acr4n1us
 ▒▒▒█────▄─▄─▌▒▒▒▒▒▒▒▒▒Contact: https://github.com/RamalhoSec
