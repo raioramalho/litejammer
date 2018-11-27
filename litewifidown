@@ -38,7 +38,7 @@ mode="Default"
 f_logo() {
 	clear
 printf "${red}
-▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒${name}${red}
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒${white}${name}${blue}${version}${red}
 ▒▒▒▒▒▐▀▀▀█▄▒▒▒▒▒▒▒▒▒▒▒
 ▒▒▒▒█▀─────█▒▒▒▒▒▒▒▒▒▒${white}Created by: ${blue}Acr4n1us${red}
 ▒▒▒█────▄─▄─▌▒▒▒▒▒▒▒▒▒${white}Contact: ${blue}https://github.com/RamalhoSec${red}
