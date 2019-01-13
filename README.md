@@ -1,4 +1,4 @@
-# Litejammer [![](https://img.shields.io/github/last-commit/raioramalho/litejammer.svg)](https://github.com/raioramalho/litejammer/releases) [![](https://img.shields.io/github/release-date/raioramalho/litejammer.svg?style=popout)](https://github.com/raioramalho/litejammer) [![](https://img.shields.io/github/release/raioramalho/litejammer.svg?style=popout)](https://github.com/raioramalho/litejammer/releases) [![Twitter Follow](https://img.shields.io/twitter/follow/raioramalho.svg?style=social&label=Follow)](https://twitter.com/raioramalho)
+# Litejammer [![](https://img.shields.io/github/last-commit/raioramalho/litejammer.svg)](https://github.com/raioramalho/litejammer/releases/) [![](https://img.shields.io/github/release-date/raioramalho/litejammer.svg?style=popout)](https://github.com/raioramalho/litejammer) [![](https://img.shields.io/github/release/raioramalho/litejammer.svg?style=popout)](https://github.com/raioramalho/litejammer/releases) [![Twitter Follow](https://img.shields.io/twitter/follow/raioramalho.svg?style=social&label=Follow)](https://twitter.com/raioramalho)
 
 ```
 Litejammer v1.0 (https://gitlab.com/raioramalho/litejammer)
